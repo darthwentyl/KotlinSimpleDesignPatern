@@ -1,5 +1,5 @@
 package wendland.michal.design_patter
 
-interface ResponsibilityIfc {
+interface ResponsibilityIfc : ResponsibilityItem {
     fun execute()
 }

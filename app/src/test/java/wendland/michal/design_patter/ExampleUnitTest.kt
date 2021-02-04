@@ -4,7 +4,7 @@ import io.kotest.core.spec.style.StringSpec
 
 class ExampleUnitTest: StringSpec({
     "Execute responsibilities" {
-        val resposibilities  = listOf(
+        var resposibilities  = listOf(
             ResponsibilityBuilder().setExecutionDay(21).setExecutionTime(1).setName("Wyrzucic smieci").setWhoExecute("Michal").build(),
             ResponsibilityBuilder().setExecutionDay(20).setExecutionTime(12).setName("Zrobic ciasto").setWhoExecute("Dominika").build(),
             ResponsibilityBuilder().setExecutionDay(24).setExecutionTime(32).setName("Ubrac choinke").setWhoExecute("Hubert").build(),
@@ -13,9 +13,18 @@ class ExampleUnitTest: StringSpec({
             ImportantResponsibility(ResponsibilityBuilder().setName("Pakowanie prezentow").setExecutionDay(24).build())
         )
 
-        val it = resposibilities.listIterator()
-        while (it.hasNext()) {
-            it.next().execute()
+        resposibilities.forEach{
+            it.execute()
+        }
+
+        println()
+        println("------------------------------------------------------------------")
+        println()
+
+        // Visitor
+        var visitor = ChristmasResponsibilityVisitor()
+        resposibilities.forEach{
+            it.accept(visitor)
         }
     }
 })

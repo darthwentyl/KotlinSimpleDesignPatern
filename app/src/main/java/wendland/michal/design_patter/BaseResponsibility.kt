@@ -5,7 +5,8 @@ import java.lang.StringBuilder
 class BaseResponsibility(val name: String,
                          val executionTime: Int,
                          val executionDay: Int,
-                         val whoExecute: String) : ResponsibilityIfc {
+                         val whoExecute: String)
+    : ResponsibilityIfc {
 
     override fun execute() {
         val msg = StringBuilder()
@@ -25,5 +26,9 @@ class BaseResponsibility(val name: String,
         }
         msg.append("----> Execute")
         println(msg.toString())
+    }
+
+    override fun accept(visitor: ResponsibilityVisitor) {
+        visitor.visit(this)
     }
 }
