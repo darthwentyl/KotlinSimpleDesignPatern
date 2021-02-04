@@ -26,7 +26,7 @@ class ResponsibilityBuilder {
         return this
     }
 
-    fun build() : Responsibility {
-        return Responsibility(name, executionTime, executionDay, whoExecute)
+    fun build() : ResponsibilityIfc {
+        return BaseResponsibility(name, executionTime, executionDay, whoExecute)
     }
 }
