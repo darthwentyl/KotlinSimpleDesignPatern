@@ -10,7 +10,7 @@ class ExampleUnitTest: StringSpec({
             ResponsibilityBuilder().setExecutionDay(24).setExecutionTime(32).setName("Ubrac choinke").setWhoExecute("Hubert").build(),
             ResponsibilityBuilder().setExecutionDay(13).setExecutionTime(12).setName("Posprzatac").build(),
             ResponsibilityBuilder().setName("Umyc podloge").build(),
-            ResponsibilityBuilder().setName("Pakowanie prezentow").setExecutionDay(24).build()
+            ImportantResponsibility(ResponsibilityBuilder().setName("Pakowanie prezentow").setExecutionDay(24).build())
         )
 
         val it = resposibilities.listIterator()
